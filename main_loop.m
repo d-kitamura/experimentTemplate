@@ -14,17 +14,17 @@ clc; % コマンドラインをクリア
 % 出力ディレクトリ名とエクセルファイル名
 outDirName = "./output/"; % 結果を保存するディレクトリのパス
 excelFileName = "result.xlsx"; % 結果を保存するエクセルファイル名
-exelFilePath = outDirName + excelFileName; % エクセルファイルのパス（outDir内のexcelFileName）
+excelFilePath = outDirName + excelFileName; % エクセルファイルのパス（outDir内のexcelFileName）
 
 % 結果保存用のテーブル変数の定義
-isExcelFile = exist(exelFilePath, 'file'); % エクセルファイルが存在するかしないか判定（存在すれば2，無ければ0）
+isExcelFile = exist(excelFilePath, 'file'); % エクセルファイルが存在するかしないか判定（存在すれば2，無ければ0）
 if ~isfolder(outDirName) % outDirが存在しない場合
     mkdir(outDirName); % 出力ディレクトリの作成
     resultTable = []; % 空のtable変数を定義
 elseif isExcelFile ~= 2 % outDirは存在するがexcelFileNameの名前のエクセルファイルが存在しない場合
     resultTable = []; % 空のtable変数を定義
 else % outDirが存在しexcelFileNameの名前のエクセルファイルも存在する場合
-    resultTable = readtable(exelFilePath); % エクセルファイルを読み込んでtable変数に代入
+    resultTable = readtable(excelFilePath); % エクセルファイルを読み込んでtable変数に代入
 end
 
 % 網羅的に調査する入力データの条件やアルゴリズムのパラメータ等の設定
@@ -51,5 +51,5 @@ for cond1 = 1:5
 end
 
 % データベースの保存
-writetable(resultTable, exelFilePath); % エクセルファイルを上書き
+writetable(resultTable, excelFilePath); % エクセルファイルを上書き
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
