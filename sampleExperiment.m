@@ -3,7 +3,7 @@ function [output1,output2] = sampleExperiment(data,param1,param2,param3)
 % sampleExperiment: sample function for experiment with input parameters
 %
 % [syntax]
-%   [output1,output2] = sampleExperiment(param1,param2,param3)
+%   [output1,output2] = sampleExperiment(data,param1,param2,param3)
 %
 % [inputs]
 %      data: input data
