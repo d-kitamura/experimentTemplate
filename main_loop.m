@@ -12,14 +12,14 @@ close all; % 全プロットフィギュアウィンドウを閉じる
 clc; % コマンドラインをクリア
 
 % 出力ディレクトリ名とエクセルファイル名
-outDirName = "./output/"; % 結果を保存するディレクトリのパス
+outDirPath = "./output/"; % 結果を保存するディレクトリのパス
 excelFileName = "result.xlsx"; % 結果を保存するエクセルファイル名
-excelFilePath = outDirName + excelFileName; % エクセルファイルのパス（outDir内のexcelFileName）
+excelFilePath = outDirPath + excelFileName; % エクセルファイルのパス（outDir内のexcelFileName）
 
 % 結果保存用のテーブル変数の定義
 isExcelFile = exist(excelFilePath, 'file'); % エクセルファイルが存在するかしないか判定（存在すれば2，無ければ0）
-if ~isfolder(outDirName) % outDirが存在しない場合
-    mkdir(outDirName); % 出力ディレクトリの作成
+if ~isfolder(outDirPath) % outDirが存在しない場合
+    mkdir(outDirPath); % 出力ディレクトリの作成
     resultTable = []; % 空のtable変数を定義
 elseif isExcelFile ~= 2 % outDirは存在するがexcelFileNameの名前のエクセルファイルが存在しない場合
     resultTable = []; % 空のtable変数を定義
