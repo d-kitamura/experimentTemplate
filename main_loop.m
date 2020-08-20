@@ -27,13 +27,21 @@ else % outDirが存在しexcelFileNameの名前のエクセルファイルも存
     resultTable = readtable(excelFilePath); % エクセルファイルを読み込んでtable変数に代入
 end
 
+% 入力データの条件やアルゴリズムのパラメータ等の設定
+cond1All = 1:5; % 条件1
+cond2All = 1:5; % 条件2
+param1All = 0.5:0.5:2.5; % パラメータ1
+param2All = 0.25:0.25:1; % パラメータ2
+param3All = ["max", "min"]; % パラメータ3
+seedAll = 1:10; % 乱数シード値（アルゴリズム中で乱数を用いる場合に再現性を確保するため）
+
 % 網羅的に調査する入力データの条件やアルゴリズムのパラメータ等の設定
-for cond1 = 1:5
-    for cond2 = 1:5
-        for param1 = 0.5:0.5:2.5
-            for param2 = 0.25:0.25:1
-                for param3 = ["max", "min"]
-                    for seed = 1:10
+for cond1 = cond1All
+    for cond2 = cond2All
+        for param1 = param1All
+            for param2 = param2All
+                for param3 = param3All
+                    for seed = seedAll
                         % 乱数ストリームの初期化
                         RandStream.setGlobalStream(RandStream('mt19937ar','Seed',seed)); % seedの値を使って疑似乱数列を生成（疑似乱数はメルセンヌツイスタ）
                         
